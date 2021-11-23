@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "https://domus-system.vercel.app/", "http://localhost:3000/" })
 @RestController
 @RequestMapping("/propiedad")
 public class PropiedadController {
@@ -24,7 +24,7 @@ public class PropiedadController {
 
     @GetMapping()
     public ArrayList<PropiedadModel> getAllPropiedades() {
-        return propiedadService.getAllPropiedades();
+        return propiedadService.getPropiedades();
     }
 
     @PostMapping()
@@ -34,6 +34,6 @@ public class PropiedadController {
 
     @GetMapping("/{id}")
     public Optional<PropiedadModel> getPropiedadById(@PathVariable("id") Long id) {
-        return this.propiedadService.getPropiedadById(id);
+        return this.propiedadService.getPropiedadPorId(id);
     }
 }

@@ -14,7 +14,7 @@ public class PropiedadService {
     @Autowired
     PropiedadRepository propiedadRepository;
 
-    public ArrayList<PropiedadModel> getAllPropiedades() {
+    public ArrayList<PropiedadModel> getPropiedades() {
         return (ArrayList<PropiedadModel>) propiedadRepository.findAll();
     }
 
@@ -22,7 +22,7 @@ public class PropiedadService {
         return propiedadRepository.save(propiedad);
     }
 
-    public Optional<PropiedadModel> getPropiedadById(Long id) {
+    public Optional<PropiedadModel> getPropiedadPorId(Long id) {
         return propiedadRepository.findById(id);
     }
 }
